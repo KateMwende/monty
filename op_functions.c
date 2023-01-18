@@ -2,7 +2,6 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include "monty.h"
-glo_t glo;
 
 /**
  * op_push - function that push an element to the stack
@@ -14,8 +13,15 @@ glo_t glo;
 
 void op_push(stack_t **stack, unsigned int line_number)
 {
+	char *val = strtok(NULL, " \n\t");
+
+	if (val == NULL || !atoi(val))
+	{
+		printf("L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	stack_t *new_node;
-	(void)line_number;
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
@@ -25,14 +31,12 @@ void op_push(stack_t **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = glo.node_data;
-	new_node->next = NULL;
+	new_node->n = atoi(val);
+	new_node->next = *stack;
 	new_node->prev = NULL;
 
 	if (*stack)
 	{
-		new_node->next = *stack;
-
 		(*stack)->prev = new_node;
 	}
 	*stack = new_node;
@@ -50,9 +54,8 @@ void op_push(stack_t **stack, unsigned int line_number)
 void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
-	(void)line_number;
 
-	while (current)
+	while (current != NULL)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
