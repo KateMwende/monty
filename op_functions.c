@@ -1,8 +1,6 @@
-#define _POSIX_C_SOURCE  200809L
-#define _GNU_SOURCE
 #include <stdio.h>
 #include "monty.h"
-
+#include <stdlib.h>
 /**
  * op_push - function that push an element to the stack
  * @stack: a pointer to the head of a linked list
@@ -17,7 +15,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 	if (val == NULL || !atoi(val))
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
