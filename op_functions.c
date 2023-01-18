@@ -11,8 +11,17 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
-	(void)line_number;
+	char *val = strtok(glo.line_buff, " \n\t");
 
+	val = strtok(NULL, " \n\t");
+
+	if (val == NULL || !atoi(val))
+	{
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	glo.node_data = atoi(val);
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
