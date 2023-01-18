@@ -87,4 +87,4 @@ void add_error(unsigned int c)
 {
 	dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", c);
 	exit(EXIT_FAILURE);
-} 
+}

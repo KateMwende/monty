@@ -51,7 +51,7 @@ void line_check(ssize_t lines)
  * @head: pointer to the head of the linked list
  * Return: nothing
  */
-void op_check(int check,unsigned int c, stack_t *head)
+void op_check(int check, unsigned int c, stack_t *head)
 {
 	if (check == 0)
 	{
@@ -70,4 +70,4 @@ void op_check(int check,unsigned int c, stack_t *head)
 void op_check_print_error(unsigned int c)
 {
 	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", c, glo.bigb);
-} 
+}
