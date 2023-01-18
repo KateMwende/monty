@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "monty.h"
-#include <stdlib.h>
+glo_t glo;
 /**
  * op_push - function that push an element to the stack
  * @stack: a pointer to the head of a linked list
@@ -11,15 +11,8 @@
 
 void op_push(stack_t **stack, unsigned int line_number)
 {
-	char *val = strtok(NULL, " \n\t");
-
-	if (val == NULL || !atoi(val))
-	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
 	stack_t *new_node;
+	(void)line_number;
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
@@ -29,7 +22,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = atoi(val);
+	new_node->n = glo.node_data;
 	new_node->next = *stack;
 	new_node->prev = NULL;
 
