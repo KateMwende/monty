@@ -1,4 +1,8 @@
+#define _POSIX_C_SOURCE  200809L
+#define _GNU_SOURCE
+
 #include "monty.h"
+#include <stdio.h>
 
 /**
  * op_mod - moduluses the first 2 nodes
@@ -47,7 +51,7 @@ void op_pchar(stack_t **stack, unsigned int li)
 	if (current->n < 0 || current->n > 127)
 	{
 		dprintf(STDERR_FILENO, "L%u: ", li);
-		dprintf(STDERR_FILEN, "can't pchar, value out of range\n");
+		dprintf(STDERR_FILENO, "can't pchar, value out of range\n");
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", current->n);

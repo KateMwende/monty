@@ -1,4 +1,8 @@
+#define _POSIX_C_SOURCE  200809L
+#define _GNU_SOURCE
+
 #include "monty.h"
+#include <string.h>
 glo_t glo;
 /**
 * main - reads a monty file and executes line by line

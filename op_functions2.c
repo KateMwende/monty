@@ -1,4 +1,7 @@
+#define _POSIX_C_SOURCE  200809L
+#define _GNU_SOURCE
 #include "monty.h"
+#include <stdio.h>
 
 /**
  * op_swap - function that swaps the first 2 nodes in a linked list

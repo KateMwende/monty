@@ -1,5 +1,9 @@
+#define _POSIX_C_SOURCE  200809L
+#define _GNU_SOURCE
 #include "monty.h"
+#include <stdio.h>
 glo_t glo;
+
 /**
  * parse_line - tokenizes the line
  * @c: line number
