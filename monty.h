@@ -59,7 +59,7 @@ void integer_error(unsigned int c, stack_t *head);
 void pint_error(unsigned int c);
 void pop_error(stack_t **stack, unsigned int c);
 void add_error(unsigned int c);
-void check_errors(int argc, char *argv);
+
 /* More error functions */
 void sub_error(unsigned int c);
 void div_error(unsigned int c);

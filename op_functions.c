@@ -7,6 +7,35 @@
  *
  * Return: nothing
  */
+void op_push(stack_t **stack, unsigned int line_number)
+{
+    stack_t *new_node;
+    char *val;
+    val = strtok(glo.line_buff, " \n\t");
+    val = strtok(NULL, " \n\t");
+    if (val == NULL || !(glo.node_data = atoi(val)))
+    {
+        printf("L%d: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    new_node = (stack_t *)malloc(sizeof(stack_t));
+    if (!new_node)
+    {
+        printf("Error: malloc failed\n");
+        free_buff();
+        free_stack(*stack);
+        exit(EXIT_FAILURE);
+    }
+    new_node->n = glo.node_data;
+    new_node->next = NULL;
+    new_node->prev = NULL;
+    if (*stack)
+    {
+        new_node->next = *stack;
+        (*stack)->prev = new_node;
+    }
+    *stack = new_node;
+}
 
 /**void op_push(stack_t **stack, unsigned int line_number)
 {
@@ -17,7 +46,7 @@
 
 	if (val == NULL || !atoi(val))
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +54,7 @@
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		printf("Error: malloc failed\n");
 		free_buff();
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
@@ -52,7 +81,7 @@
  * Return: nothing
  */
 
-/**void op_pall(stack_t **stack, unsigned int line_number)
+void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	(void)line_number;
@@ -62,7 +91,7 @@
 		printf("%d\n", current->n);
 		current = current->next;
 	}
-}*/
+}
 
 /**
  * op_pint - function that prints the value at the top of the stack
