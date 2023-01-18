@@ -3,7 +3,6 @@
 
 #include "monty.h"
 #include <string.h>
-glo_t glo;
 /**
 * main - reads a monty file and executes line by line
 * @argc: argument counter

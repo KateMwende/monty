@@ -46,6 +46,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
+
 	while (current)
 	{
 		printf("%d\n", current->n);
