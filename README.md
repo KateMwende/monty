@@ -71,5 +71,6 @@ The opcode nop doesn’t do anything.
 Usage: nop
 
 Authors:
-Kate Mwende 
+Kate Mwende    
+
 Salome Gathumbi
