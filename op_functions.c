@@ -8,7 +8,7 @@
  * Return: nothing
  */
 
-void op_push(stack_t **stack, unsigned int line_number)
+/**void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *val = strtok(glo.line_buff, " \n\t");
@@ -42,7 +42,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	}
 	*stack = new_node;
 
-}
+}*/
 
 /**
  * op_pall - function that prints out all the elements of a linked list
@@ -52,7 +52,7 @@ void op_push(stack_t **stack, unsigned int line_number)
  * Return: nothing
  */
 
-void op_pall(stack_t **stack, unsigned int line_number)
+/**void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	(void)line_number;
@@ -62,7 +62,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
-}
+}*/
 
 /**
  * op_pint - function that prints the value at the top of the stack
