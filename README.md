@@ -70,7 +70,8 @@ The opcode nop doesn’t do anything.
 
 Usage: nop
 
-Authors:
+Authors:  
+
 Kate Mwende    
 
 Salome Gathumbi
